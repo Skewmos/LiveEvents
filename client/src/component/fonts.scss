@@ -1,0 +1,21 @@
+$circularSdt:circularStd;
+$circularSdtBold:circularStdBold;
+$hirolley:hirolley;
+
+@font-face {
+    font-family: circularStd;
+    src:  url('../fonts/CircularStd/CircularStd-Medium.otf');
+
+  }
+
+@font-face {
+  font-family: circularStdBold;
+  src:  url('../fonts/CircularStd/CircularStd-Bold.otf');
+
+}
+
+@font-face {
+  font-family: hirolley;
+  src:  url('../fonts/hirolley/HiRolley.otf');
+
+}
