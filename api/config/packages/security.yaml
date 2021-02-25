@@ -22,7 +22,12 @@ security:
             json_login:
                 check_path: api_login
                 username_path: email
-                password_path: password            
+                password_path: password
+            logout:
+                path: api_logout           
+            guard:
+                authenticators:
+                    - App\Security\AppAuthenticator
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
