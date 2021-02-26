@@ -2,12 +2,28 @@
 @import "../fonts.scss";
 
 .containerSlider {
-    position: relative;
+    display: flex;
+
     img {
-        position: absolute;
-        padding-right: 0 !important;
-        padding-left: 50px !important;
+        padding-right: 0;
+        padding-left: 0;
+        width: 246px;
+        height: 246px;
+        border-radius: 8px;
+        opacity: 1;
     }
+
+    .typeMusic {
+        text-align: left;
+        font-family: $hirolley ;
+        letter-spacing: 0px;
+        color: $white;
+        opacity: 1;
+        position: absolute;
+        margin-top: 205px;
+        margin-left: 20px;
+    }
+
 }
 
 .event {
@@ -20,10 +36,10 @@
     font-family: $circularSdt;
     font-size: 14px;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: $white;
     opacity: 1;
     position: absolute;
-    margin-left: 44px;
+    margin-left: 29px;
     margin-top:15px;
 
     p {
@@ -40,13 +56,13 @@
     font-family: $circularSdt;
     font-size: 14px;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: $white;
     opacity: 1;
     p {
         margin-top: 10px;
     }
     position: absolute;
-    margin-left: 44px;
+    margin-left: 29px;
     margin-top:15px;
 
 }
@@ -61,10 +77,10 @@
     font-family: $circularSdt;
     font-size: 14px;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: $white;
     opacity: 1; 
     position: absolute;
-    margin-left: 130px;
+    margin-left: 110px;
     margin-top:15px;
     
     p {
@@ -87,3 +103,4 @@
 .rec.rec-arrow {
     visibility: hidden;
 }
+

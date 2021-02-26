@@ -13,8 +13,10 @@ class Home extends React.Component {
         return (
             <>
                 <div className="container">
+                    <div className="text">
                     <h1>Vivez une expérience</h1>
                     <h2>Inoubliable</h2>
+                    </div>
                     <div className="services">
                         <p>Accédez aux services</p>
                         <FaAngleDoubleDown/>
@@ -24,7 +26,9 @@ class Home extends React.Component {
                    <h3>Les concerts <span className="color_degrade">disponibles</span></h3>
                    <SearchBar className="searchbar"/>
                </div>
-             
+               <div className="slider">
+                    <AppSlider/>
+               </div>
                <div className="map">
                    <h3>Découvrir la carte  <span className="color_degrade">interactive</span></h3>   
                     <img src={map} alr="map"/>

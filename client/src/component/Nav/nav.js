@@ -13,10 +13,12 @@ const Nav = () => {
                 <img src={logo} alt="Liveevents logo"/>
                 <div className="navbar-item">
                 <Router>
+                        <NavLink to="/billeterie" className="navlink">Billeterie</NavLink>
                         <NavLink to="/programme" className="navlink">Programmes</NavLink>
                         <NavLink to="/maps" className="navlink">Carte interactive</NavLink>
                         <NavLink to="/partenaire" className="navlink">Partenaires</NavLink>
-                        <NavLink to="/billeterie" ><Button classbtn="btnprimary btn-large" value="Accédez à la billetterie"/></NavLink>
+                        <NavLink to="/faq" className="navlink">F.A.Q</NavLink>
+                        <NavLink to="/login" ><Button classbtn="btnprimary btn-large" value="Connexion"/></NavLink>
                 </Router>
                 </div>
             </nav>

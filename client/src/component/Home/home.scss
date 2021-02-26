@@ -16,8 +16,6 @@
         text-shadow: 0px 10px 40px #00000033;
         opacity: 1;
         font-size: 70px;
-        margin-left: 343px;
-        margin-right: 342px;
         margin-bottom: 0;
     }
     
@@ -27,8 +25,6 @@
         text-align: center;
         margin-top: 0;
         margin-bottom: 0;
-        margin-left: 52px;
-        margin-right: 23px;
         //background:  linear-gradient(175deg, #FF552A 0%, #F21F0B 100%) 0% 0% no-repeat padding-box;
         background: -webkit-linear-gradient($orange, $red);
         -webkit-background-clip: text;
@@ -86,7 +82,9 @@ h3 {
     }
 
     img {
-        width:1160px;
-        padding-left: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto 
     }
+    
 }
