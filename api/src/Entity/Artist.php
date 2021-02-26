@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Artist
- *
+ * @ApiResource
  * @ORM\Table(name="ARTIST")
  * @ORM\Entity
  */

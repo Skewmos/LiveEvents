@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Role
- *
+ * @ApiResource
  * @ORM\Table(name="ROLE")
  * @ORM\Entity
  */
