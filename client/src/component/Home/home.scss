@@ -88,3 +88,44 @@ h3 {
     }
     
 }
+
+.billet {
+    display: flex;
+
+    .booking {
+        margin-top: 92px;
+        margin-left: 100px;
+        p{
+            width: 510px;
+            height: 136px;
+            letter-spacing: 0px;
+            opacity: 1; 
+            color: #918BA6;
+
+            span {
+                font-family: $hirolley ;
+                font-size: 20px;
+                letter-spacing: 0px;
+                color: #1C1A4F;
+            }
+;        }
+    }
+    .bookingImg {
+        margin-top: 90px;
+    }
+}
+
+.picture {
+    .textPicture {
+    color:#918BA6;
+    h3{
+        text-align: center;
+        margin-bottom: 20px;
+        .hirolley {
+            font-family: $hirolley;
+        }
+    }
+    }
+    text-align: center;
+    margin-top: 0;
+}
