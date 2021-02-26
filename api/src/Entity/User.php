@@ -2,119 +2,98 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
+ * User
  * @ApiResource
+ * @ORM\Table(name="USER", indexes={@ORM\Index(name="I_FK_USER_ROLE", columns={"IDROLE"})})
+ * @ORM\Entity
  */
-class User implements UserInterface
+class User
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="IDUSER", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $iduser;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="FIRSTNAME", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $firstname;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="LASTNAME", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $lastname;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="BIRTHDAY", type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=255, nullable=true, options={"fixed"=true})
      */
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @var string|null
+     *
+     * @ORM\Column(name="PHONE", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    private $roles = [];
+    private $phone;
 
     /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @var string|null
+     *
+     * @ORM\Column(name="PASSWORD", type="string", length=255, nullable=true, options={"fixed"=true})
      */
     private $password;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     /**
-     * A visual identifier that represents this user.
+     * @var \DateTime|null
      *
-     * @see UserInterface
+     * @ORM\Column(name="CREATEDAT", type="datetime", nullable=true)
      */
-    public function getUsername(): string
-    {
-        return (string) $this->email;
-    }
+    private $createdat;
 
     /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function getPassword(): string
-    {
-        return (string) $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     * @var \DateTime|null
      *
-     * @see UserInterface
+     * @ORM\Column(name="UPDATEDAT", type="datetime", nullable=true)
      */
-    public function getSalt(): ?string
-    {
-        return null;
-    }
+    private $updatedat;
 
     /**
-     * @see UserInterface
+     * @var string|null
+     *
+     * @ORM\Column(name="PICTUREURL", type="text", length=65535, nullable=true)
      */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
+    private $pictureurl;
+
+    /**
+     * @var \Role
+     *
+     * @ORM\ManyToOne(targetEntity="Role")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IDROLE", referencedColumnName="IDROLE")
+     * })
+     */
+    private $idrole;
+
+
 }
