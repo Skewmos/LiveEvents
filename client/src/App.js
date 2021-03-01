@@ -7,7 +7,7 @@ import {
 import Routing from "./component/Route/route";
 import Nav from "./component/Nav/nav";
 import Banner from "./component/BannerInformation/bannerInformation";
-import background from './images/background.svg';
+import background from './images/bg1.svg';
 import Footer from './component/Footer/footer';
 import './App.scss';
 import './component/utilities.scss';
@@ -33,7 +33,7 @@ function App() {
         </Route>
      </Switch>
       <div className="app" style={{ backgroundImage: `url(${background})` }}>
-        <Nav />
+       <Nav />
        <Routing/>
        <Footer />
       </div>
