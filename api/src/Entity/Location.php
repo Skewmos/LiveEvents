@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Location
- * @ApiResource
+ *
  * @ORM\Table(name="LOCATION")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\LocationRepository")
  */
 class Location
 {

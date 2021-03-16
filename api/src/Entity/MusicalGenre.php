@@ -5,13 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * MusicalGenre
- * @ApiResource
+ *
  * @ORM\Table(name="MUSICAL_GENRE")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\MusicalGenreRepository")
  */
 class MusicalGenre
 {

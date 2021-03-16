@@ -2,18 +2,16 @@
 
 namespace App\Entity;
 
-use App\Entity\Role;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
- * @ApiResource
- * @ORM\Table(name="USER", indexes={@ORM\Index(name="I_FK_USER_ROLE", columns={"IDROLE"})})
+ *
+ * @ORM\Table(name="USER")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface
+class User
 {
     /**
      * @var int
@@ -86,16 +84,6 @@ class User implements UserInterface
      * @ORM\Column(name="PICTUREURL", type="text", length=65535, nullable=true)
      */
     private $pictureurl;
-
-    /**
-     * @var \Role
-     *
-     * @ORM\ManyToOne(targetEntity="Role")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IDROLE", referencedColumnName="IDROLE")
-     * })
-     */
-    private $idrole;
 
     public function getIduser(): ?int
     {
@@ -208,38 +196,6 @@ class User implements UserInterface
         $this->pictureurl = $pictureurl;
 
         return $this;
-    }
-
-    public function getIdrole()
-    {
-        return $this->idrole;
-    }
-
-    public function setIdrole(?int $idrole)
-    {
-        $this->idrole = $idrole;
-
-        return $this;
-    }
-
-
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    public function getSalt()
-    {
-        
-    }
-
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    public function eraseCredentials()
-    {
     }
 
 
