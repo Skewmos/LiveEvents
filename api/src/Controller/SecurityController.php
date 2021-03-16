@@ -6,6 +6,9 @@ use App\Security\AppAuthenticator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ApiPlatform\Core\Api\IriConverterInterface;
+use App\Entity\Role;
+use App\Entity\User;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,11 +17,30 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SecurityController extends AbstractController{
 
     /**
-     * @Route("/register", name="api_register", methods={"POST"})
+     * @Route("api/register", name="api_register", methods={"POST"})
      */
 
      public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, AppAuthenticator $authenticator): Response
      {
+         $entityManager = $this->getDoctrine()->getManager();
+            $user = new User();
+            $user->setFirstname($request->get('firstname'));
+            $user->setLastname($request->get('lastname'));
+            $user->setBirthday($request->get('birthday'));
+            $user->setEmail($request->get('email'));
+            $user->setPhone($request->get('phone'));
+            $user->setPassword($passwordEncoder->encodePassword(
+                $user,
+                $request->request->get('password')
+            ));
+            $user->setCreatedat(new \DateTime());
+            $user->setUpdatedat(new \DateTime());
+            $user->setPictureurl("https://picsum.photos/seed/picsum/200/300");
+            $user->setIdrole(1);
+
+            $entityManager->persist($user);
+
+            $entityManager->flush();
 
      }
 

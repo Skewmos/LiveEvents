@@ -9,7 +9,6 @@ class Button extends React.Component {
     }
 
     render(props){
-        console.log(this.props);
         return(
             <>
                 <button className={this.props.classbtn}>{this.props.value}</button>

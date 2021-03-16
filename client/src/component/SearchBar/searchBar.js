@@ -26,12 +26,10 @@ const  SearchBar = () => {
             <div className="form-groupe">
                 <label>Par heure</label>
                 <div className="select-custom">
-                    <div className="arrow-left"></div>
                         <select name="heure" ref={register} defaultValue="10:00 - 11:00">
                             <option >10:00 - 11:00</option>
                             <option >11:00 - 12:00</option>
                         </select>
-                    <div className="arrow-right"></div>
                 </div>
             </div>
             <a href="#">Appliquer les filtres</a>
