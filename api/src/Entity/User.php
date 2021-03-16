@@ -2,44 +2,140 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\UserRepository;
+use App\Entity\Role;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
+ * User
  * @ApiResource
+ * @ORM\Table(name="USER", indexes={@ORM\Index(name="I_FK_USER_ROLE", columns={"IDROLE"})})
+ * @ORM\Entity
  */
 class User implements UserInterface
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="IDUSER", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $iduser;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="FIRSTNAME", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $firstname;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="LASTNAME", type="string", length=255, nullable=true, options={"fixed"=true})
+     */
+    private $lastname;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="BIRTHDAY", type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=255, nullable=true, options={"fixed"=true})
      */
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @var string|null
+     *
+     * @ORM\Column(name="PHONE", type="string", length=255, nullable=true, options={"fixed"=true})
      */
-    private $roles = [];
+    private $phone;
 
     /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @var string|null
+     *
+     * @ORM\Column(name="PASSWORD", type="string", length=255, nullable=true, options={"fixed"=true})
      */
     private $password;
 
-    public function getId(): ?int
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="CREATEDAT", type="datetime", nullable=true)
+     */
+    private $createdat;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="UPDATEDAT", type="datetime", nullable=true)
+     */
+    private $updatedat;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="PICTUREURL", type="text", length=65535, nullable=true)
+     */
+    private $pictureurl;
+
+    /**
+     * @var \Role
+     *
+     * @ORM\ManyToOne(targetEntity="Role")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IDROLE", referencedColumnName="IDROLE")
+     * })
+     */
+    private $idrole;
+
+    public function getIduser(): ?int
     {
-        return $this->id;
+        return $this->iduser;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(?\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
     }
 
     public function getEmail(): ?string
@@ -47,74 +143,104 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
+    public function getPhone(): ?string
     {
-        return (string) $this->email;
+        return $this->phone;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
+    public function setPhone(?string $phone): self
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
+        $this->phone = $phone;
 
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
-        return (string) $this->password;
+        return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
         return $this;
     }
 
-    /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
-     *
-     * @see UserInterface
-     */
-    public function getSalt(): ?string
+    public function getCreatedat(): ?\DateTimeInterface
     {
-        return null;
+        return $this->createdat;
     }
 
-    /**
-     * @see UserInterface
-     */
+    public function setCreatedat(?\DateTimeInterface $createdat): self
+    {
+        $this->createdat = $createdat;
+
+        return $this;
+    }
+
+    public function getUpdatedat(): ?\DateTimeInterface
+    {
+        return $this->updatedat;
+    }
+
+    public function setUpdatedat(?\DateTimeInterface $updatedat): self
+    {
+        $this->updatedat = $updatedat;
+
+        return $this;
+    }
+
+    public function getPictureurl(): ?string
+    {
+        return $this->pictureurl;
+    }
+
+    public function setPictureurl(?string $pictureurl): self
+    {
+        $this->pictureurl = $pictureurl;
+
+        return $this;
+    }
+
+    public function getIdrole()
+    {
+        return $this->idrole;
+    }
+
+    public function setIdrole(?int $idrole)
+    {
+        $this->idrole = $idrole;
+
+        return $this;
+    }
+
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function getSalt()
+    {
+        
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
+
+
 }

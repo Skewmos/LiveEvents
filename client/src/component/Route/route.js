@@ -5,6 +5,7 @@ import {
   } from "react-router-dom";
 import Login from "../Admin/Login/Login";
 import Home from "../Home/home";
+import { Register } from "../Register/register";
 
 const Routing = () => {
     return(
@@ -14,6 +15,9 @@ const Routing = () => {
             </Route>
             <Route exact path="/admin/login">
                 <Login />
+            </Route>
+            <Route exact path="/register">
+                <Register />
             </Route>
       </Switch>
     )
