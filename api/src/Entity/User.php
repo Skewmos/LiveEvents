@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * User
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="USER")
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ApiResource
  */
 class User
 {

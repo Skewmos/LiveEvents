@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Restaurant
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="RESTAURANT", indexes={@ORM\Index(name="I_FK_RESTAURANT_LOCATION", columns={"IDLOCATION"})})
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="App\Repository\RestaurantRepository")
+ * @ApiResource
  */
 class Restaurant
 {
