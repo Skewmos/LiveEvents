@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use App\Entity\Role;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -11,7 +13,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * @ORM\Table(name="USER", indexes={@ORM\Index(name="I_FK_USER_ROLE", columns={"IDROLE"})})
  * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -94,6 +96,151 @@ class User
      * })
      */
     private $idrole;
+
+    public function getIduser(): ?int
+    {
+        return $this->iduser;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?\DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(?\DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getCreatedat(): ?\DateTimeInterface
+    {
+        return $this->createdat;
+    }
+
+    public function setCreatedat(?\DateTimeInterface $createdat): self
+    {
+        $this->createdat = $createdat;
+
+        return $this;
+    }
+
+    public function getUpdatedat(): ?\DateTimeInterface
+    {
+        return $this->updatedat;
+    }
+
+    public function setUpdatedat(?\DateTimeInterface $updatedat): self
+    {
+        $this->updatedat = $updatedat;
+
+        return $this;
+    }
+
+    public function getPictureurl(): ?string
+    {
+        return $this->pictureurl;
+    }
+
+    public function setPictureurl(?string $pictureurl): self
+    {
+        $this->pictureurl = $pictureurl;
+
+        return $this;
+    }
+
+    public function getIdrole()
+    {
+        return $this->idrole;
+    }
+
+    public function setIdrole(?int $idrole)
+    {
+        $this->idrole = $idrole;
+
+        return $this;
+    }
+
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function getSalt()
+    {
+        
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function eraseCredentials()
+    {
+    }
 
 
 }

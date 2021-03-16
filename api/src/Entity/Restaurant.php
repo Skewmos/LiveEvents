@@ -53,5 +53,58 @@ class Restaurant
      */
     private $idlocation;
 
+    public function getIdrestaurant(): ?int
+    {
+        return $this->idrestaurant;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getOpenhours(): ?\DateTimeInterface
+    {
+        return $this->openhours;
+    }
+
+    public function setOpenhours(?\DateTimeInterface $openhours): self
+    {
+        $this->openhours = $openhours;
+
+        return $this;
+    }
+
+    public function getClosehours(): ?\DateTimeInterface
+    {
+        return $this->closehours;
+    }
+
+    public function setClosehours(?\DateTimeInterface $closehours): self
+    {
+        $this->closehours = $closehours;
+
+        return $this;
+    }
+
+    public function getIdlocation(): ?Location
+    {
+        return $this->idlocation;
+    }
+
+    public function setIdlocation(?Location $idlocation): self
+    {
+        $this->idlocation = $idlocation;
+
+        return $this;
+    }
+
 
 }

@@ -53,5 +53,58 @@ class Billiet
      */
     private $iduser;
 
+    public function getIdbilliet(): ?int
+    {
+        return $this->idbilliet;
+    }
+
+    public function getNameconcert(): ?string
+    {
+        return $this->nameconcert;
+    }
+
+    public function setNameconcert(?string $nameconcert): self
+    {
+        $this->nameconcert = $nameconcert;
+
+        return $this;
+    }
+
+    public function getDatestart(): ?\DateTimeInterface
+    {
+        return $this->datestart;
+    }
+
+    public function setDatestart(?\DateTimeInterface $datestart): self
+    {
+        $this->datestart = $datestart;
+
+        return $this;
+    }
+
+    public function getDateend(): ?\DateTimeInterface
+    {
+        return $this->dateend;
+    }
+
+    public function setDateend(?\DateTimeInterface $dateend): self
+    {
+        $this->dateend = $dateend;
+
+        return $this;
+    }
+
+    public function getIduser(): ?User
+    {
+        return $this->iduser;
+    }
+
+    public function setIduser(?User $iduser): self
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
 
 }

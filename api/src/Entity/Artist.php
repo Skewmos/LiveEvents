@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
@@ -50,6 +52,47 @@ class Artist
     public function __construct()
     {
         $this->idconcert = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdartist(): ?int
+    {
+        return $this->idartist;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Concert[]
+     */
+    public function getIdconcert(): Collection
+    {
+        return $this->idconcert;
+    }
+
+    public function addIdconcert(Concert $idconcert): self
+    {
+        if (!$this->idconcert->contains($idconcert)) {
+            $this->idconcert[] = $idconcert;
+        }
+
+        return $this;
+    }
+
+    public function removeIdconcert(Concert $idconcert): self
+    {
+        $this->idconcert->removeElement($idconcert);
+
+        return $this;
     }
 
 }

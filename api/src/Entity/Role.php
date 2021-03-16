@@ -29,5 +29,22 @@ class Role
      */
     private $name;
 
+    public function getIdrole(): ?int
+    {
+        return $this->idrole;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
 
 }
