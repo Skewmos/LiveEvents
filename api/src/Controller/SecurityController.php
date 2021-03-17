@@ -29,18 +29,20 @@ class SecurityController extends AbstractController{
             $user->setBirthday($request->get('birthday'));
             $user->setEmail($request->get('email'));
             $user->setPhone($request->get('phone'));
+            $password = $request->request->get('password');
             $user->setPassword($passwordEncoder->encodePassword(
                 $user,
-                $request->request->get('password')
+                $password
             ));
             $user->setCreatedat(new \DateTime());
             $user->setUpdatedat(new \DateTime());
             $user->setPictureurl("https://picsum.photos/seed/picsum/200/300");
-            $user->setIdrole(1);
 
             $entityManager->persist($user);
 
             $entityManager->flush();
+
+             return $this->redirectToRoute('home');
 
      }
 

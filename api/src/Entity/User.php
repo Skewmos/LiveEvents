@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -13,7 +14,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ApiResource
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -200,5 +201,19 @@ class User
         return $this;
     }
 
+    public function getSalt(){
 
+    }
+
+    public function getUsername() {
+
+    }
+
+    public function eraseCredentials() {
+
+    }
+
+    public function getRoles() {
+        
+    }
 }

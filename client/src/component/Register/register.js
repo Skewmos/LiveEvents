@@ -55,7 +55,7 @@ class Register extends React.Component {
                     alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
                     Axios({
                         method: 'post',
-                        url: 'http://localhost:8000/api/users',
+                        url: 'http://localhost:8000/api/register',
                         data: {
                           fields: fields
                         }
