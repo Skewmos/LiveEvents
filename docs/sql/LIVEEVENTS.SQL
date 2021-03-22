@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS liveevents;
 
 CREATE DATABASE IF NOT EXISTS liveevents;
 
-USE livevents; 
+USE liveevents; 
 
 # -----------------------------------------------------------------------------
 #       TABLE : USER
