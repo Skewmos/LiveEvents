@@ -10,11 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/{reactRouting}", name="index", defaults={"reactRouting": null})
      */
     public function index(): Response
     {
-        $data = ['redirect' => 'http://localhost:3000/login'];
-        return new JsonResponse($data);
+        return $this->render('home/index.html.twig');
     }
 }
