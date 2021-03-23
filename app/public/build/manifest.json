@@ -1,0 +1,16 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/css/utilities.css": "/build/css/utilities.css",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_bootstrap_dist_css_bootstrap_min_css-node_modules_axios_index_js-node_mo-5e0070.css": "/build/vendors-node_modules_bootstrap_dist_css_bootstrap_min_css-node_modules_axios_index_js-node_mo-5e0070.css",
+  "build/vendors-node_modules_bootstrap_dist_css_bootstrap_min_css-node_modules_axios_index_js-node_mo-5e0070.js": "/build/vendors-node_modules_bootstrap_dist_css_bootstrap_min_css-node_modules_axios_index_js-node_mo-5e0070.js",
+  "build/images/billet.svg": "/build/images/billet.5238516a.svg",
+  "build/images/bg1.svg": "/build/images/bg1.452c7def.svg",
+  "build/images/bg.svg": "/build/images/bg.ad7bfb8e.svg",
+  "build/images/map.svg": "/build/images/map.760dbcd4.svg",
+  "build/fonts/HiRolley.otf": "/build/fonts/HiRolley.03b3b64f.otf",
+  "build/fonts/CircularStd-Bold.otf": "/build/fonts/CircularStd-Bold.5c4514a8.otf",
+  "build/fonts/CircularStd-Medium.otf": "/build/fonts/CircularStd-Medium.9ffafedd.otf",
+  "build/images/liveevents-logo.svg": "/build/images/liveevents-logo.694f3b65.svg"
+}
