@@ -1,0 +1,131 @@
+@import "../../component/color";
+@import "../../component/fonts";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12%;
+    flex-direction: column;
+
+    h1 {
+        text-align: left;
+        font-family: $circularSdt;
+        letter-spacing: 0px;
+        color: $dark-blue;
+        text-shadow: 0px 10px 40px #00000033;
+        opacity: 1;
+        font-size: 70px;
+        margin-bottom: 0;
+    }
+    
+    h2 {
+        font-family: $hirolley;
+        font-size: 80px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        //background:  linear-gradient(175deg, #FF552A 0%, #F21F0B 100%) 0% 0% no-repeat padding-box;
+        background: -webkit-linear-gradient($orange, $red);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+    }
+
+    .services{
+        text-align: center;
+        font-family: $circularSdt;
+        font-size: 16px;
+        letter-spacing: 0px;
+        color: $dark-blue;
+        opacity: 1;
+        margin-top: 180px;
+    }
+
+}
+
+.wrap {
+    margin-top: 13rem;
+    margin-left: 100px;
+
+}
+h3 {
+    text-align: left;
+    font-family: $circularSdt;
+    font-size: 40px;
+    letter-spacing: 0px;
+    color: $dark-blue;
+    opacity: 1;
+}
+
+.slider {
+    height: 246px;
+    margin-top: 40px;
+}
+
+.map {
+    width: 100%;
+    height: 600px;
+    background: #F6F6F873 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+    h3 {
+        padding-top: 50px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    button {
+        margin-left: 569px;
+        margin-top: -20px;
+        margin-bottom: 50px;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto 
+    }
+    
+}
+
+.billet {
+    display: flex;
+
+    .booking {
+        margin-top: 92px;
+        margin-left: 100px;
+        p{
+            width: 510px;
+            height: 136px;
+            letter-spacing: 0px;
+            opacity: 1; 
+            color: #918BA6;
+
+            span {
+                font-family: $hirolley ;
+                font-size: 20px;
+                letter-spacing: 0px;
+                color: #1C1A4F;
+            }
+;        }
+    }
+    .bookingImg {
+        margin-top: 90px;
+    }
+}
+
+.picture {
+    .textPicture {
+    color:#918BA6;
+    h3{
+        text-align: center;
+        margin-bottom: 20px;
+        .hirolley {
+            font-family: $hirolley;
+        }
+    }
+    }
+    text-align: center;
+    margin-top: 0;
+}

@@ -2,131 +2,41 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * User
- *
- * @ORM\Table(name="USER")
- * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ApiResource
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="IDUSER", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $iduser;
+    private $id;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="FIRSTNAME", type="string", length=255, nullable=true, options={"fixed"=true})
-     */
-    private $firstname;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="LASTNAME", type="string", length=255, nullable=true, options={"fixed"=true})
-     */
-    private $lastname;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="BIRTHDAY", type="date", nullable=true)
-     */
-    private $birthday;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="EMAIL", type="string", length=255, nullable=true, options={"fixed"=true})
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="PHONE", type="string", length=255, nullable=true, options={"fixed"=true})
+     * @ORM\Column(type="json")
      */
-    private $phone;
+    private $roles = [];
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="PASSWORD", type="string", length=255, nullable=true, options={"fixed"=true})
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
     private $password;
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="CREATEDAT", type="datetime", nullable=true)
-     */
-    private $createdat;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="UPDATEDAT", type="datetime", nullable=true)
-     */
-    private $updatedat;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="PICTUREURL", type="text", length=65535, nullable=true)
-     */
-    private $pictureurl;
-
-    public function getIduser(): ?int
+    public function getId(): ?int
     {
-        return $this->iduser;
-    }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(?string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(?string $lastname): self
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getBirthday(): ?\DateTimeInterface
-    {
-        return $this->birthday;
-    }
-
-    public function setBirthday(?\DateTimeInterface $birthday): self
-    {
-        $this->birthday = $birthday;
-
-        return $this;
+        return $this->id;
     }
 
     public function getEmail(): ?string
@@ -134,86 +44,74 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getPhone(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
     {
-        return $this->phone;
+        return (string) $this->email;
     }
 
-    public function setPhone(?string $phone): self
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->phone = $phone;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
 
-    public function getPassword(): ?string
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
     {
-        return $this->password;
+        return (string) $this->password;
     }
 
-    public function setPassword(?string $password): self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
         return $this;
     }
 
-    public function getCreatedat(): ?\DateTimeInterface
+    /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
     {
-        return $this->createdat;
+        return null;
     }
 
-    public function setCreatedat(?\DateTimeInterface $createdat): self
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
     {
-        $this->createdat = $createdat;
-
-        return $this;
-    }
-
-    public function getUpdatedat(): ?\DateTimeInterface
-    {
-        return $this->updatedat;
-    }
-
-    public function setUpdatedat(?\DateTimeInterface $updatedat): self
-    {
-        $this->updatedat = $updatedat;
-
-        return $this;
-    }
-
-    public function getPictureurl(): ?string
-    {
-        return $this->pictureurl;
-    }
-
-    public function setPictureurl(?string $pictureurl): self
-    {
-        $this->pictureurl = $pictureurl;
-
-        return $this;
-    }
-
-    public function getSalt(){
-
-    }
-
-    public function getUsername() {
-
-    }
-
-    public function eraseCredentials() {
-
-    }
-
-    public function getRoles() {
-        
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }

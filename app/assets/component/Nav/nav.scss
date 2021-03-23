@@ -1,0 +1,33 @@
+@import "../../component/color";
+@import "../../component/fonts";
+
+.navbar {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.navbar-logo{
+    margin-left: 100px;
+    margin-right: 318px;
+}
+.navbar-items {
+    padding-right: 100px;
+}
+
+a {
+    letter-spacing: 0px;
+    color: $dark-blue;
+    opacity: 1;
+    margin-right: 40px;
+    font-family: $circularSdtBold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+img {
+    padding-right: 240px;
+    padding-left: 30px;
+}
