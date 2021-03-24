@@ -11,6 +11,10 @@ import Footer from './component/Footer/footer';
 import styles from  './App.scss';
 import './component/utilities.scss';
 
+import CSSModules from 'react-css-modules';
+
+
+
 import Axios from "axios";
 
 function App() {
@@ -34,18 +38,16 @@ if (window.location.pathname === '/' || window.location.pathname === '/home' ) {
 
 
   return (
-
-<Router>
-      <Banner/>
-      <div className={styles.app} style={{ backgroundImage: `url(${backgroundImg})` }}>
-       <Nav />
-       <Routing/>
-      <Footer />
-      </div>
-
-      
-   </Router>
+      <Router>
+        <div className="container-fluid p-0">
+                    <Banner/>
+                    <div className={styles.app} style={{backgroundImg: 'url("background")'}}>
+                        <Nav />
+                        <Routing/>
+                    </div>
+        </div>
+      </Router>
   );
 }
 
-export default App;
+export default CSSModules(App, styles);
