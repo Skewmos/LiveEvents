@@ -6,35 +6,45 @@ const  SearchBar = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data)
     return(
-        <div className="searchBar">
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-groupe">
-                <label>Par scène</label>
-                <select name="scene" ref={register} defaultValue="ZoneA">
-                    <option value="Zone A">Zone A</option>
-                    <option value="Zone B">Zone B</option>
-                    <option value="Zone C">Zone C</option>
-                </select>
-            </div>
-            <div className="form-groupe">
-                <label>Par date</label>
-                <select name="date" ref={register} defaultValue="9 août 2021">
-                    <option value="9 août 2021">9 août 2021</option>
-                    <option value="10 août 2021">10 août 2021</option>
-                </select>
-            </div>
-            <div className="form-groupe">
-                <label>Par heure</label>
-                <div className="select-custom">
-                        <select name="heure" ref={register} defaultValue="10:00 - 11:00">
-                            <option >10:00 - 11:00</option>
-                            <option >11:00 - 12:00</option>
-                        </select>
+            <div className="row">
+                <div className="col-md-12">
+                    <form action="" className="form-row">
+                        <div className="form-group space">
+                            <label htmlFor="scene">Par scène</label>
+                            <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                <option defaultValue>Choisir...</option>
+                                <option value="1">Zone A</option>
+                                <option value="2">Zone B</option>
+                                <option value="3">Zone C</option>
+                            </select>
+                        </div>
+
+                        <div className="form-group space">
+                            <label htmlFor="scene">Par date</label>
+                            <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                <option defaultValue>Choisir...</option>
+                                <option value="1">9 août 2021</option>
+                                <option value="2">10 août 2021</option>
+                                <option value="3">11 août 2021</option>
+                            </select>
+                        </div>
+
+                        <div className="form-group space">
+                            <label htmlFor="scene">Par heure</label>
+                            <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                <option defaultValue>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+
+
+
+                        <a href="">Appliquer les filtres</a>
+                    </form>
                 </div>
             </div>
-            <a href="#">Appliquer les filtres</a>
-            </form>
-        </div>
     )
 }
 

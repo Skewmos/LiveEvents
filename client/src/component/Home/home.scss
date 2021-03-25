@@ -58,15 +58,22 @@ h3 {
     opacity: 1;
 }
 
+
+.container-search{
+    margin-top:130px;
+    margin-left: 100px;
+}
 .slider {
     height: 246px;
     margin-top: 40px;
 }
 
+.mapContainer {
+    background-color: #F6F6F873;
+}
 .map {
     width: 100%;
-    height: 600px;
-    background: #F6F6F873 0% 0% no-repeat padding-box;
+    height: 290px !important;
     opacity: 1;
 
     h3 {

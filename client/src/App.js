@@ -34,17 +34,15 @@ if (window.location.pathname === '/' || window.location.pathname === '/home' ) {
 
 
   return (
-
-<Router>
-      <Banner/>
-      <div className="app" style={{ backgroundImage: `url(${backgroundImg})` }}>
-       <Nav />
-       <Routing/>
-      <Footer />
-      </div>
-
-      
-   </Router>
+      <Router>
+          <div className="container-fluid p-0">
+              <Banner/>
+              <div className="app" style={{ backgroundImage: `url(${backgroundImg})`  }}>
+                  <Nav />
+                  <Routing/>
+              </div>
+          </div>
+      </Router>
   );
 }
 
