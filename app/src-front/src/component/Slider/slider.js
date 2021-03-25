@@ -39,7 +39,7 @@ export default function AppSlider() {
         <img src="https://picsum.photos/seed/picsum/246/246" className="imgSlider"/>
         <BadgeType data="event"/>
         <BadgeSong song="rap"/>
-        <p class="typeMusic">Christine and the queens</p>
+        <p className="typeMusic">Christine and the queens</p>
       </div>
     )
   }
