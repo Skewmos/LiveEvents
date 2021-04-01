@@ -1,0 +1,17 @@
+@import "../color.scss";
+@import "../fonts.scss";
+
+.banner{
+    background-color: $dark-blue ;
+}
+
+.banner-info {
+    text-align: left;
+    font-family:$circularSdt;
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: $white;
+    opacity: 1;
+    margin-top: 8px;
+    margin-bottom: 11px;
+}
