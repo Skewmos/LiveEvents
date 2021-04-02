@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+    database:
+        image: mysql
+        container_name: db_docker_symfony
+        restart: always
+        volumes:
+            - db-data:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        networks:
+            - dev
+    php:
+        build: php
+        container_name: www_docker_symfony
+        ports:
+            - "8741:80"
+        volumes:
+            - ./php/vhosts:/etc/apache2/sites-enabled
+            - ./api:/var/www
+        restart: always
+        networks:
+            - dev
+
+    react-client:
+        build:
+          context: ./react
+        ports:
+          - "3000:3000"
+        container_name: react-client
+        stdin_open: true
+        volumes:
+           - ./client:/var/www/client
+        networks:
+            - dev
+networks:
+    dev:
+volumes:
+    db-data:
