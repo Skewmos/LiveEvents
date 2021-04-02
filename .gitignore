@@ -100,3 +100,5 @@ sketch
 *.code-workspace
 
 .idea
+
+/database/data
