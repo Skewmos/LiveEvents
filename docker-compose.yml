@@ -3,7 +3,7 @@ version: '3'
 services:
     database:
         image: mysql
-        container_name: db_docker_symfony
+        container_name: db_docker_nationsound
         restart: always
         volumes:
             - db-data:/var/lib/mysql
@@ -13,7 +13,7 @@ services:
             - dev
     php:
         build: php
-        container_name: www_docker_symfony
+        container_name: www_docker_nationsound
         ports:
             - "8741:80"
         volumes:
@@ -32,6 +32,19 @@ services:
         stdin_open: true
         volumes:
            - ./client:/var/www/client
+        networks:
+            - dev
+    
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: phpmyadmin_docker_nationsound
+        restart: always
+        depends_on:
+            - database
+        ports:
+            - 8080:80
+        environment:
+            PMA_HOST: database
         networks:
             - dev
 networks:
