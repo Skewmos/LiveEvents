@@ -1,0 +1,63 @@
+@import "../color.scss";
+@import "../fonts.scss";
+
+.parking {
+    height: 550px;
+    background-color: $white;
+    padding-left: 100px;
+}
+
+.sous-titre {
+    color: $dark-blue;
+    font-size: 40px;
+    padding-bottom: 30px;
+    padding-top: 50px;
+}
+
+.paragraphe{
+    color: $gray;
+    // height: 420px;
+    font-size: 20px;
+}
+
+input{
+    border: 3px solid $dark-blue;
+    color: $dark-blue;
+    font-family: $circularSdtBold;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 8px;
+    width: 353px;
+    height: 72px;
+    background-color: $white;
+}
+
+.rectangle{
+    height: 622px;
+    width: 431px;
+    background: #fff;
+    box-shadow: 10px 10px 3px #D6D6D6;
+    border-radius: 8px;
+    margin-left: 834px;
+    margin-top: 887,66px;
+    margin-bottom: 324px;
+    float: left;  
+    
+}
+
+h3{
+    margin-top: 935,66px;
+    color: black;
+}
+
+thead{
+    width: 431px;
+    height: 20px;
+    color: #918BA6;
+    background:#DEDCE4;
+}
+
+td{
+    font-family:Circular Std Light;
+    margin-left: 896px;
+}
