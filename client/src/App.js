@@ -40,6 +40,7 @@ if (window.location.pathname === '/' || window.location.pathname === '/home' ) {
               <div className="app" style={{ backgroundImage: `url(${backgroundImg})`  }}>
                   <Nav />
                   <Routing/>
+                  <Footer/>
               </div>
           </div>
       </Router>
