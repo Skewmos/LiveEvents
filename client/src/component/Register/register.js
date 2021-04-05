@@ -57,55 +57,55 @@ class Register extends React.Component {
                         method: 'post',
                         url: 'http://localhost:8000/api/users',
                         data: {
-                          fields: fields
+                            fields: fields
                         }
-                      });
+                    });
                 }}
             >
                 {({ errors, status, touched }) => (
                     <Form>
-                       <div className="container">
-                       <div className="row">
-                            <div className="form-group col-6">
-                                <label htmlFor="firstName">Nom </label>
-                                <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
-                                <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
+                        <div className="container">
+                            <div className="row">
+                                <div className="form-group col-6">
+                                    <label htmlFor="firstName">Nom </label>
+                                    <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group col-6">
+                                    <label htmlFor="lastName"> Prénom </label>
+                                    <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group col-6">
+                                    <label htmlFor="birthday"> Date de naissance </label>
+                                    <Field name="birthday" type="text" className={'form-control' + (errors.birthday && touched.birthday ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="birthday" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group col-6">
+                                    <label htmlFor="phone"> Numéro  de téléphone </label>
+                                    <Field name="phone" type="text" className={'form-control' + (errors.phone && touched.phone ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="phone" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group col-6">
+                                    <label htmlFor="email">Email</label>
+                                    <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group col-6">
+                                    <label htmlFor="password">Password</label>
+                                    <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group col-6">
+                                    <label htmlFor="confirmPassword">Confirm Password</label>
+                                    <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group">
+                                    <button type="submit" className="registerBtn">Inscrition</button>
+                                </div>
                             </div>
-                            <div className="form-group col-6">
-                                <label htmlFor="lastName"> Prénom </label>
-                                <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
-                                <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col-6">
-                                <label htmlFor="birthday"> Date de naissance </label>
-                                <Field name="birthday" type="text" className={'form-control' + (errors.birthday && touched.birthday ? ' is-invalid' : '')} />
-                                <ErrorMessage name="birthday" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col-6">
-                                <label htmlFor="phone"> Numéro  de téléphone </label>
-                                <Field name="phone" type="text" className={'form-control' + (errors.phone && touched.phone ? ' is-invalid' : '')} />
-                                <ErrorMessage name="phone" component="div" className="invalid-feedback" />
-                            </div>
-                        <div className="form-group col-6">
-                            <label htmlFor="email">Email</label>
-                            <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                            <ErrorMessage name="email" component="div" className="invalid-feedback" />
                         </div>
-                            <div className="form-group col-6">
-                                <label htmlFor="password">Password</label>
-                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col-6">
-                                <label htmlFor="confirmPassword">Confirm Password</label>
-                                <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
-                                <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
-                            </div>
-                        <div className="form-group">
-                            <button type="submit" className="registerBtn">Inscrition</button>
-                        </div>
-                        </div>
-                       </div>
                     </Form>
                 )}
             </Formik>
